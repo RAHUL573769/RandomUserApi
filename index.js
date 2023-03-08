@@ -115,6 +115,21 @@ const userData=[{
 
 ]
 
+app.get("/",(req,res)=>{
+    res.send("Hello");
+})
+app.get("/users",(req,res)=>{
+    res.send(userData);
+})
+app.get("/users/:id",(req,res)=>{
+ const particularUser=req.params;
+
+ const findUser=userData.find(data=>data.id==particularUser.id);
+
+ res.json(findUser);
+
+ console.log(findUser);
+})
 
 
 
@@ -122,6 +137,3 @@ const userData=[{
 app.listen(3000, () => {
   console.log(`Example app listening on port `);
 });
-app.get("/",(req,res)=>{
-    res.send("Hello");
-})
