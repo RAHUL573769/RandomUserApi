@@ -64,6 +64,8 @@ app.use("/user",userRouter);
 // http://localhost:3000/user/all-------To get all Users
 //http://localhost:3000/user/1------------To get particular user
 // http://localhost:3000/user/save----To post user data
+// http://localhost:3000/user/----To post user data
+// http://localhost:3000/user/----To post user data
 
 
 

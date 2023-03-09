@@ -67,7 +67,7 @@ router.post("/save",(req,res)=>{
     userData.push(dataGiven);
     res.send(userData);
 })
-router.put("/bulk-update",(req,res)=>{
+router.patch("/bulk-update",(req,res)=>{
     // console.log(req.params);
     // console.log(req.body);
 
@@ -118,8 +118,10 @@ console.log(req.body);
 })
 
 router.delete("/delete/:id",(req,res)=>{
-    const deletedId=req.params.id;
 
+   
+    const deletedId=req.params.id;
+console.log(deletedId);
 const deletedData=userData.find(x=>x.id!==deletedId);
 
 
