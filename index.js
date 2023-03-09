@@ -118,10 +118,13 @@ let userData=[{
 app.get("/",(req,res)=>{
     res.send("Hello");
 })
-app.get("/users",(req,res)=>{
-    res.send(userData);
+app.get("/user/all",(req,res)=>{
+
+    const {limit}=req.query;
+    console.log(limit);
+    res.send(userData.slice(0,limit));
 })
-app.get("/users/:id",(req,res)=>{
+app.get("/user/:id",(req,res)=>{
  const particularUser=req.params;
 
  const findUser=userData.find(data=>data.id==particularUser.id);
@@ -130,7 +133,15 @@ app.get("/users/:id",(req,res)=>{
 
  console.log(findUser);
 })
-app.put("/users",(req,res)=>{
+
+
+app.post("/user/save",(req,res)=>{
+    const dataGiven=req.body;
+    console.log(dataGiven);
+    userData.push(dataGiven);
+    res.send(userData);
+})
+app.put("/user/bulk-update",(req,res)=>{
     // console.log(req.params);
     // console.log(req.body);
 
@@ -141,10 +152,17 @@ app.put("/users",(req,res)=>{
 // console.log(req.body);
    
 //     console.log("148",updatedData);
+
+if(req.body){
     userData.push(req.body);
     console.log(req.body);
-    res.send(userData);
-})
+    res.send(userData);  
+}
+else{
+    res.send("<p>Invalid</p>")
+}
+}
+)
 
 app.patch("/users/:id",(req,res)=>{
     // console.log(req.params);
