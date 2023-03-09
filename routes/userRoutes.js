@@ -79,15 +79,14 @@ router.patch("/bulk-update",(req,res)=>{
    
 //     console.log("148",updatedData);
 
-if(req.body===undefined){
-  res.send("<p>Send Valid Data</p>");
-}
-else{
+
+
+
     userData.push(req.body);
     console.log(req.body);
     res.send(userData)
 }
-}
+
 )
 
 

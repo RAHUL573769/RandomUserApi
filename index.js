@@ -60,12 +60,13 @@ app.get("/",(req,res)=>{
 })
 app.use("/user",userRouter);
 
-// Api Documentation
+// ----------------------------Api Documentation------------------------------------------------------
 // http://localhost:3000/user/all-------To get all Users
 //http://localhost:3000/user/1------------To get particular user
 // http://localhost:3000/user/save----To post user data
 // http://localhost:3000/user/----To post user data
-// http://localhost:3000/user/----To post user data
+// PATCH /user/bulk-update update multiple users
+// http://localhost:3000/user/delete.id----To delete user data
 
 
 
