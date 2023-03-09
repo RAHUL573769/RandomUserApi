@@ -1,22 +1,4 @@
-// Your assignment is to create an API that generates random user data. The random user data should have the following properties:
 
-
-
-// Id
-// gender
-// name
-// contact
-// address
-// photoUrl
-
-
-// Your API should have a .json file. You will perform CRUD operations on the .json file using Express and the file system module. You are required to use the following endpoints to perform the operation:
-
-
-
-// GET /user/random A random user
-
-// Get a random user from the .json file
 
 
 // GET /user/all A list of random users
@@ -114,9 +96,12 @@ let userData=[{
 
 
 ]
-
+// Api Documentation
+// http://localhost:3000/user/all-------To get all Users
+//http://localhost:3000/user/1------------To get particular user
+// http://localhost:3000/user/save----To post user data
 app.get("/",(req,res)=>{
-    res.send("Hello");
+    res.send("<h1>Random User Assignment</h1>");
 })
 app.get("/user/all",(req,res)=>{
 
@@ -153,13 +138,13 @@ app.put("/user/bulk-update",(req,res)=>{
    
 //     console.log("148",updatedData);
 
-if(req.body){
-    userData.push(req.body);
-    console.log(req.body);
-    res.send(userData);  
+if(req.body===undefined){
+  res.send("<p>Send Valid Data</p>");
 }
 else{
-    res.send("<p>Invalid</p>")
+    userData.push(req.body);
+    console.log(req.body);
+    res.send(userData)
 }
 }
 )
@@ -189,7 +174,16 @@ console.log(req.body);
     res.send(userData);
 })
 
+app.delete("/user/delete/:id",(req,res)=>{
+    const deletedId=req.params.id;
 
+const deletedData=userData.find(x=>x.id!==deletedId);
+
+
+
+
+    res.send(deletedData);
+})
 
 app.listen(3000, () => {
   console.log(`Example app listening on port `);
