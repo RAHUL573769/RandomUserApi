@@ -55,7 +55,10 @@ const userRouter=require("./routes/userRoutes");
 const app=express();
 app.use(express.json());
 
-
+app.get("/",(req,res)=>{
+    res.send("<h1>Hello From NodeJs</h1>")
+})
+app.use("/user",userRouter);
 
 // Api Documentation
 // http://localhost:3000/user/all-------To get all Users
@@ -63,89 +66,9 @@ app.use(express.json());
 // http://localhost:3000/user/save----To post user data
 
 
-app.use("/user",userRouter);
-
-// app.get("/",(req,res)=>{
-//     res.send("<h1>Random User Assignment</h1>");
-// })
-// app.get("/user/all",(req,res)=>{
-
-//     const {limit}=req.query;
-//     console.log(limit);
-//     res.send(userData.slice(0,limit));
-// })
-// app.get("/user/:id",(req,res)=>{
-//  const particularUser=req.params;
-
-//  const findUser=userData.find(data=>data.id==particularUser.id);
-
-//  res.json(findUser);
-
-//  console.log(findUser);
-// })
-
-
-// app.post("/user/save",(req,res)=>{
-//     const dataGiven=req.body;
-//     console.log(dataGiven);
-//     userData.push(dataGiven);
-//     res.send(userData);
-// })
-// app.put("/user/bulk-update",(req,res)=>{
-//     console.log(req.params);
-//     console.log(req.body);
-
-//     const updateId=req.params.id;
-//     const updatedData=userData.find(x=>x.id==updateId);
-
-//     console.log("140",updatedData);
-// console.log(req.body);
-   
-//     console.log("148",updatedData);
-
-// if(req.body===undefined){
-//   res.send("<p>Send Valid Data</p>");
-// }
-// else{
-//     userData.push(req.body);
-//     console.log(req.body);
-//     res.send(userData)
-// }
-// }
-// )
-
-// app.patch("/users/:id",(req,res)=>{
-//     console.log(req.params);
-//     console.log(req.body);
-
-//     const updateId=req.params.id;
-//     const updatedData=userData.find(x=>x.id==updateId);
-
-//     console.log("140",updatedData);
-// console.log(req.body);
-    
-//     updatedData.id=req.body.id;
-//     updatedData.gender=req.body.gender;
-//     updatedData.contact=req.body.contact;
-//     updatedData.address=req.body.address;
-//     updatedData.photoUrl=req.body.photoUrl;
-
-//     console.log("148",updatedData);
-//     userData.push(req.body);
-//     console.log(req.body);
-//     res.send(userData);
-// })
-
-// app.delete("/user/delete/:id",(req,res)=>{
-//     const deletedId=req.params.id;
-
-// const deletedData=userData.find(x=>x.id!==deletedId);
 
 
 
-
-//     res.send(deletedData);
-// })
 
 app.listen(3000, () => {
   console.log(`Example app listening on port `);

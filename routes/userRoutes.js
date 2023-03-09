@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router=express.Router();
 let userData=[{
     "id":1,
@@ -48,7 +49,7 @@ router.get("/all",(req,res)=>{
     const {limit}=req.query;
     console.log(limit);
     res.send(userData.slice(0,limit));
-})
+});
 router.get("/:id",(req,res)=>{
  const particularUser=req.params;
 
