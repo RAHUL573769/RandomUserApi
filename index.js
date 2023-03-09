@@ -72,7 +72,7 @@ const app=express();
 app.use(express.json());
 
 
-const userData=[{
+let userData=[{
     "id":1,
     "gender":"male",
     "contact":013141412415,
@@ -130,7 +130,46 @@ app.get("/users/:id",(req,res)=>{
 
  console.log(findUser);
 })
+app.put("/users",(req,res)=>{
+    // console.log(req.params);
+    // console.log(req.body);
 
+//     const updateId=req.params.id;
+//     const updatedData=userData.find(x=>x.id==updateId);
+
+//     console.log("140",updatedData);
+// console.log(req.body);
+   
+//     console.log("148",updatedData);
+    userData.push(req.body);
+    console.log(req.body);
+    res.send(userData);
+})
+
+app.patch("/users/:id",(req,res)=>{
+    // console.log(req.params);
+    // console.log(req.body);
+
+    const updateId=req.params.id;
+    const updatedData=userData.find(x=>x.id==updateId);
+
+    console.log("140",updatedData);
+console.log(req.body);
+    // updatedData.gender=updateId;
+    updatedData.id=req.body.id;
+    updatedData.gender=req.body.gender;
+    updatedData.contact=req.body.contact;
+    updatedData.address=req.body.address;
+    updatedData.photoUrl=req.body.photoUrl;
+    // updateId.contact=req.body.contact;
+    // updateId.address=req.body.address;
+    // updateId.photoUrl=req.body.photoUrl;
+    // console.log(req.body);
+    console.log("148",updatedData);
+    userData.push(req.body);
+    console.log(req.body);
+    res.send(userData);
+})
 
 
 
