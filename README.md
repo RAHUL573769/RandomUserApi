@@ -15,4 +15,4 @@ Technologies Used:
 
 2.NodeJs
 
-3.For testing the Api PostMan/Thunder Client is Used
+3.For testing the Api PostMan/Thunder Client is Used.
