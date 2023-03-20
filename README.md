@@ -1,4 +1,4 @@
-# Random User Api Using ExpressJs.
+# Creating Random User Api Using ExpressJs.
 
 A brief description of what this project does and who it's for
 
